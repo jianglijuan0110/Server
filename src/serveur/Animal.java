@@ -1,4 +1,4 @@
-package server;
+package serveur;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -134,8 +134,8 @@ public class Animal extends UnicastRemoteObject implements IAnimal{
 	//POUR AFFICHER LES INFOS LIES AU NOM, AGE ET MAITRE DE L'ANIMAL
 	@Override
 	public String getNomComplet() throws RemoteException {
-		return "\n Nom de l'animal: " + this.nomAnimal + "\n Nom de son maître: " + this.nomMaitre + "\n Âge de l'animal: " + this.ageAnimal + " an(s)"
-				+ "\n Info dossier de suivi: " + this.getDossier() + "\n Info espèce: " + this.getEspece();
+		return "\n Nom de l'animal: " + this.nomAnimal + "\n Nom de son maï¿½tre: " + this.nomMaitre + "\n ï¿½ge de l'animal: " + this.ageAnimal + " an(s)"
+				+ "\n Info dossier de suivi: " + this.getDossier() + "\n Info espï¿½ce: " + this.getEspece();
 	}
 
 	
@@ -157,13 +157,25 @@ public class Animal extends UnicastRemoteObject implements IAnimal{
 	public String getEspece() throws RemoteException {
 		return espece.getEspece();
 	}
+	
 	@Override
 	public String nomEspece() throws RemoteException{
 		return espece.getNomEspece();
 	}
 	@Override
+	public void setNomEspece(String nom) throws RemoteException {
+		this.espece.setNomEspece(nom);
+		
+	}
+	
+	@Override
 	public int dureeVieEspece() throws RemoteException {
 		return espece.getDureeVieEspece();
+	}
+	@Override
+	public void setDureeVieEspece(int vie) throws RemoteException {
+		this.espece.setDureeVie(vie);
+		
 	}
 	
 	

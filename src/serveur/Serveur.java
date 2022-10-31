@@ -1,37 +1,44 @@
-package server;
+package serveur;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+
 //import 
 
 import common.Espece;
+import common.IAnimal;
 
 
-public class Server {
+public class Serveur {
 	
-	private Server() {
+	private Serveur() {
 		
 	}
 
 	public static void main(String[] args) {
 		
+		//java.rmi.server.useLocalHostname=true;
+		//System.setProperty("java.rmi.server.hostname", "127.0.0.1");
+		
+		
+		
 		///*    TOUJOURS AJOUTER LA POLITIQUE SE SECURITE AVANT LE GESTIONNAIRE DE SECURITE    *///
 		
 		//POLITIQUE DE SECURITE
-	//	System.setProperty("java.security.Policy", "C:\\Users\\mague\\eclipse-workspace\\RMI_Server\\src\\server.policy");
+/*		System.setProperty("java.security.Policy", "file:C:\\Users\\mague\\eclipse-workspace\\Serveur\\src\\server.policy");
 				
 		//GESTIONNAIRE DE SECURITE
-/*		try {
+		try {
 			if (System.getSecurityManager() == null) {
 			    System.setSecurityManager(new SecurityManager());
 			}
 		} catch (Exception a) {
 			a.printStackTrace();
-		}*/
-		
+		}
+*/		
 		
 		
 		try {
@@ -48,7 +55,7 @@ public class Server {
 			
 
 			//ON CREE UN ANIMAL
-			Animal animalA = new Animal("Ayden", "Max", 2, dossierA, especeA);
+			IAnimal animalA = new Animal("Ayden", "Max", 2, dossierA, especeA);
 			
 			
 			//ON CREE LE CABINET

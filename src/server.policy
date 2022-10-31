@@ -1,7 +1,7 @@
 /* AUTOMATICALLY GENERATED ON Sun Oct 30 00:04:10 CEST 2022*/
 /* DO NOT EDIT */
 
-grant {
+grant codeBase "file:C:\Users\mague\eclipse-workspace\Common\bin\common\*" {ert
   permission java.security.AllPermission;
 };
 
