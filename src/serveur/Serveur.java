@@ -20,15 +20,11 @@ public class Serveur {
 
 	public static void main(String[] args) {
 		
-		//java.rmi.server.useLocalHostname=true;
-		//System.setProperty("java.rmi.server.hostname", "127.0.0.1");
-		
-		
 		
 		///*    TOUJOURS AJOUTER LA POLITIQUE SE SECURITE AVANT LE GESTIONNAIRE DE SECURITE    *///
 		
-		//POLITIQUE DE SECURITE
-/*		System.setProperty("java.security.Policy", "file:C:\\Users\\mague\\eclipse-workspace\\Serveur\\src\\server.policy");
+/*		//POLITIQUE DE SECURITE
+		System.setProperty("java.security.Policy", "C:\\Users\\mague\\eclipse-workspace\\Serveur\\src\\server.policy");
 				
 		//GESTIONNAIRE DE SECURITE
 		try {
@@ -42,32 +38,37 @@ public class Serveur {
 		
 		
 		try {
+			
+			
+			///*    PREMIERE VERSION DU CABINET AVEC LE SERVEUR QUI DISTRIBUE DES ANIMAUX    *///
 						
-			//ON CREE UN DOSSIER
+			//ON CREE UN DOSSIER DE SUIVI POUR L'ANIMAL
 			DossierSuivi dossierA = new DossierSuivi();
 			
 			
-			//ON CREE UN ESPECE
+			//ON CREE L'ESPECE DE L'ANIMAL
 			Espece especeA = new Espece();
 			//On renseigne le nom de l'espece et sa dur�e de vie
 			especeA.setNomEspece("Chat");
 			especeA.setDureeVie(12);
 			
 
-			//ON CREE UN ANIMAL
+			//ON CREE L'ANIMAL 
 			IAnimal animalA = new Animal("Ayden", "Max", 2, dossierA, especeA);
 			
 			
-			//ON CREE LE CABINET
+			
+			///*    DEUXIEME VERSION DU CABINET AVEC LE SERVEUR QUI DISTRIBUE DES CABINETS VETERINAIRES    *///
+			
+			//ON INITIALISE LE CABINET AVEC L'ANIMAL "anilmalA"
 			CabinetImpl cabinet = new CabinetImpl(animalA);
-			/*cabinet.ajouterAnimal("Ayden", "Max", 2, especeA);
-			cabinet.ajouterAnimal("Narbor", "Li", 3, "Chien", 10);
+			
 			
 			
 			/*Il y a cr�ation automatique d'un objet UnicastRemote (ie pour chaque objet qu'on cr�e on a un squeleton)
 			 *Le squeleton qui est UnicastRemote, lui ouvre un service d'�coute r�seau utilisant un num�ro de port (al�atoire)*/
 			
-			/*On d�marre l'annuaire sur le port 1099*/
+			/*On démarre l'annuaire sur le port 1099*/
 			Registry registry = LocateRegistry.createRegistry(1099);
 			
 			//Registry registry = LocateRegistry.getRegistry();   //On devra dans ce cas passer en param�tre le port sur lequel l'annuaire �coute
@@ -78,7 +79,7 @@ public class Serveur {
 			else {
 				/*On cr�e l'objet distant
 				 * On publie sa r�f�rence*/
-				//registry.bind("Interface Animal", animalA);
+				//registry.bind("Interface Animal", animalA);    //A DECOMMENTER POUR LA 1ER VERSION DU CABINET
 				registry.bind("Interface Cabinet", cabinet);
 				System.err.println("Server is ready");
 			}

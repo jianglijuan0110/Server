@@ -68,21 +68,11 @@ public class Animal extends UnicastRemoteObject implements IAnimal{
 	//LES ACCESSEURS POUR LE NOM DE L'ANIMAL
 	@Override
 	public String getNomAnimal() throws RemoteException {
-		if (this.nomAnimal == null) {
-			return " ";
-		}
-		else  {
-			return this.nomAnimal;
-		}
+		return this.nomAnimal;
 	}
 	@Override
 	public void setNomAnimal(String nomAnimal) throws RemoteException {
-		if (this.nomAnimal == null) {
-			this.nomAnimal = " ";
-		}
-		else  {
-			this.nomAnimal = nomAnimal;
-		}	
+		this.nomAnimal = nomAnimal;	
 	}
 	
 	
@@ -90,21 +80,11 @@ public class Animal extends UnicastRemoteObject implements IAnimal{
 	//LES ACCESSEURS POUR LE NOM DU MAITRE DE L'ANIMAL
 	@Override
 	public String getNomMaitre() throws RemoteException {
-		if (this.nomMaitre == null) {
-			return " ";
-		}
-		else  {
-			return this.nomMaitre;
-		}
+		return this.nomMaitre;
 	}
 	@Override
 	public void setNomMaitre(String nomMaitre) throws RemoteException {
-		if (this.nomMaitre == null) {
-			this.nomMaitre = " ";
-		}
-		else  {
-			this.nomMaitre = nomMaitre;
-		}	
+	    this.nomMaitre = nomMaitre;
 	}
 	
 	
@@ -112,21 +92,11 @@ public class Animal extends UnicastRemoteObject implements IAnimal{
 	//LES ACCESSEURS POUR L'AGE DE L'ANIMAL
 	@Override
 	public int getAgeAnimal() throws RemoteException {
-		if (this.ageAnimal == 0) {
-			return 0;
-		}
-		else  {
-			return this.ageAnimal;
-		}
+		return this.ageAnimal;
 	}
 	@Override
 	public void setAgeAnimal(int ageAnimal) throws RemoteException {
-		if (this.ageAnimal == 0) {
-			this.ageAnimal = 0;
-		}
-		else  {
-			this.ageAnimal = ageAnimal;
-		}	
+		this.ageAnimal = ageAnimal;
 	}
 	
 	
